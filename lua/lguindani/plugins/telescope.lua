@@ -12,6 +12,18 @@ return {
 
     telescope.setup({
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob",
+          "!**/.git/*",
+        },
         path_display = { "smart" },
         mappings = {
           i = {
@@ -19,6 +31,26 @@ return {
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
+        },
+      },
+      pickers = {
+        live_grep = {
+          file_ignore_patterns = {
+            "node_modules",
+            "vendor",
+            ".git",
+          },
+          additional_args = function(_)
+            return { "--hidden" }
+          end
+        },
+        find_files = {
+          file_ignore_patterns = {
+            "node_modules",
+            "vendor",
+            ".git",
+          },
+          hidden = true,
         },
       },
     })
@@ -34,4 +66,3 @@ return {
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
   end,
 }
-
