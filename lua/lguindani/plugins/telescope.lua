@@ -6,8 +6,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
   },
-  config = function()
-    local telescope = require("telescope")
+  config = function()    local telescope = require("telescope")
     local actions = require("telescope.actions")
 
     telescope.setup({
@@ -20,40 +19,36 @@ return {
           "--line-number",
           "--column",
           "--smart-case",
-          "--hidden",
-          "--glob",
-          "--no-ignore",
-          "--hidden",
-          "--files",
-          "!**/.git/*",
+          "--hidden", -- search hidden files
+          "--glob=!**/.git/*", -- exclude .git folder
         },
         path_display = { "smart" },
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
       },
       pickers = {
-        live_grep = {
-          file_ignore_patterns = {
-            "node_modules",
-            "vendor",
-            ".git",
-          },
-          additional_args = function(_)
-            return { "--hidden" }
-          end
-        },
         find_files = {
+          hidden = true, -- show hidden files (like .env, .config, etc)
+          file_ignore_patterns = {
+            "node_modules",
+            "vendor",
+            "^.git/",
+          },
+        },
+        live_grep = {
+          additional_args = function()
+            return { "--hidden", "--glob=!**/.git/*" }
+          end,
           file_ignore_patterns = {
             "node_modules",
             "vendor",
             ".git",
           },
-          hidden = true,
         },
       },
     })
