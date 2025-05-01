@@ -26,6 +26,15 @@ return {
       ensure_installed = {
         "lua_ls",
         "phpactor",
+        "helm_ls",
+        "cssls",
+        "bashls",
+        "pint",
+        "prettier",
+        "ts_ls",
+        "copilot-language-server",
+        "dockerfile-language-server",
+        "docker-compose-language-service",
       },
     })
   end,
