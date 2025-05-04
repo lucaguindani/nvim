@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    lazy = false,
     opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
