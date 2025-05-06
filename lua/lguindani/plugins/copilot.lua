@@ -3,4 +3,3 @@ return {
         "github/copilot.vim",
     },
 }
-
