@@ -1,8 +1,8 @@
 # Requirements
 
-- Download & instal [NeoVim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (>= 0.8)
-- Download & install [NerdFonts](https://www.nerdfonts.com/font-downloads) and set it as your terminal font
-- Download & install [LazyGit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation)
+- [NeoVim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (>= 0.11.0)
+- [NerdFonts](https://www.nerdfonts.com/font-downloads) (set it as your terminal font)
+- [LazyGit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation)
 
 # Installation
 
