@@ -1,4 +1,4 @@
-_G.vim = vim -- define vim as a glabal variable (avoid lsp warnings)
+_G.vim = vim -- define vim as a global variable (avoid lsp warnings)
 
 vim.cmd("let g:netrw_liststyle = 3")
 
