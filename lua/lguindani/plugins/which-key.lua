@@ -21,9 +21,9 @@ return {
       { "<leader>e", group = "Files explorer" },
       { "<leader>f", group = "Find" },
       { "<leader>m", group = "Multiline" },
-      { "<leader>s", group = "Split window" },
+      { "<leader>w", group = "Windows" },
       { "<leader>t", group = "Tabs" },
-      { "<leader>w", group = "Sessions" },
+      { "<leader>s", group = "Sessions" },
       { "<leader>x", group = "Diagnostics" },
       { "<leader>r", group = "LSP" },
     })
