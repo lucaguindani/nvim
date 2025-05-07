@@ -78,14 +78,19 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-    })
+    mason_lspconfig.setup()
+    -- Manually configure each LSP server
+    local servers = mason_lspconfig.get_installed_servers()
+    for _, server_name in ipairs(servers) do
+      local opts = {
+        capabilities = capabilities,
+      }
+
+      -- Add settings for a specific lsp
+      -- if server_name == "xxx" then
+      -- end
+
+      lspconfig[server_name].setup(opts)
+    end
   end,
 }
-
