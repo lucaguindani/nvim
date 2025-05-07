@@ -10,5 +10,22 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
   },
+  config = function()
+    local wk = require("which-key")
+    wk.add({
+      { "<leader>c", group = "Code" },
+      { "<leader>cc", group = "CodeCompanion" },
+      { "<leader>cp", group = "Copilot" },
+      { "<leader>h", group = "Git signs" },
+      { "<leader>l", group = "Lazy Git" },
+      { "<leader>e", group = "Files explorer" },
+      { "<leader>f", group = "Find" },
+      { "<leader>m", group = "Multiline" },
+      { "<leader>s", group = "Split window" },
+      { "<leader>t", group = "Tabs" },
+      { "<leader>w", group = "Sessions" },
+      { "<leader>x", group = "Diagnostics" },
+      { "<leader>r", group = "LSP" },
+    })
+  end,
 }
-

@@ -7,4 +7,4 @@
 # Installation
 
 1. Clone the repository in the ```~/.config/nvim``` folder
-2. Start NeoVim and run the ```:Lazy sync``` command 
+2. Start NeoVim and run the ```:Lazy sync``` command
