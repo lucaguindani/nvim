@@ -2,9 +2,10 @@
 
 - [NeoVim](https://github.com/neovim/neovim/blob/master/INSTALL.md) (>= 0.11.0)
 - [NerdFonts](https://www.nerdfonts.com/font-downloads) (set it as your terminal font)
+- [Git](https://git-scm.com/downloads)
 - [LazyGit](https://github.com/jesseduffield/lazygit?tab=readme-ov-file#installation)
 - [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- [Git](https://git-scm.com/downloads)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 
 # Installation
 
