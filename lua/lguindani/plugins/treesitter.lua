@@ -6,21 +6,22 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+    if not ok then
+      vim.notify("nvim-treesitter not found!", vim.log.levels.ERROR)
+      return
+    end
 
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
+    treesitter.setup({
       highlight = {
         enable = true,
       },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
+      indent = {
+        enable = true,
+      },
       autotag = {
         enable = true,
       },
-      -- ensure these language parsers are installed
       ensure_installed = {
         "json",
         "javascript",
@@ -47,6 +48,8 @@ return {
         "ruby",
         "go",
       },
+      sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
+      auto_install = true, -- Automatically install missing parsers when entering buffer
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -56,7 +59,8 @@ return {
           node_decremental = "<bs>",
         },
       },
+      modules = {}, -- Add an empty table for modules to satisfy the required field
+      ignore_install = {}, -- Add an empty table for ignore_install to satisfy the required field
     })
   end,
 }
-
