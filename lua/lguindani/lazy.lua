@@ -31,4 +31,3 @@ require("lazy").setup({ { import = "lguindani.plugins" }, { import = "lguindani.
     notify = false,
   },
 })
-
