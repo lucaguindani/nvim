@@ -4,3 +4,6 @@
 
 # System files
 .DS_Store
+
+# Credentials
+argocd-credentials.json
