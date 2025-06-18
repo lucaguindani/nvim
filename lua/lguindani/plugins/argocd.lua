@@ -3,6 +3,7 @@ return {
   branch = "main",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim", -- optional but recommended
+    "rcarriga/nvim-notify", --optional
+    "nvim-telescope/telescope.nvim", -- optional
   },
 }
