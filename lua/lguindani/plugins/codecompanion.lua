@@ -3,6 +3,14 @@ return {
     "olimorris/codecompanion.nvim",
     lazy = false,
     opts = {
+      strategies = {
+        chat = {
+          adapter = {
+            name = "copilot",
+            model = "gpt-4.1",
+          },
+        },
+      },
       extensions = {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
@@ -17,9 +25,9 @@ return {
             make_vars = true,
             -- MCP Prompts
             make_slash_commands = true,
-          }
-        }
-      }
+          },
+        },
+      },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
