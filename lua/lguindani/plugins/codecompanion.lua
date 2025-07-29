@@ -4,6 +4,10 @@ return {
     lazy = false,
     opts = {
       adapters = {
+        opts = {
+          show_defaults = false,
+          show_model_choices = true,
+        },
         ollama = function()
           return require("codecompanion.adapters").extend("ollama", {
             name = "ollama",
