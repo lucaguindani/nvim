@@ -8,6 +8,15 @@ return {
           show_defaults = false,
           show_model_choices = true,
         },
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "gpt-4.1",
+              },
+            },
+          })
+        end,
         ollama = function()
           return require("codecompanion.adapters").extend("ollama", {
             name = "ollama",
@@ -24,9 +33,8 @@ return {
               },
               think = {
                 default = false,
-                -- or, if you want to automatically turn on `think` for certain models:
                 default = function(adapter)
-                  -- this'll set `think` to true if the model name contain `qwen3` or `deepseek-r1`
+                  -- Set `think` to true if the model name contain `qwen3` or `deepseek-r1`
                   local model_name = adapter.model.name:lower()
                   return vim.iter({ "qwen3", "deepseek-r1" }):any(function(kw)
                     return string.find(model_name, kw) ~= nil
