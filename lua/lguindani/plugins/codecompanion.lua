@@ -26,13 +26,12 @@ return {
             },
             schema = {
               model = {
-                default = "qwen3:8b",
+                default = "qwen3:14b",
               },
               num_ctx = {
                 default = 16384,
               },
               think = {
-                default = false,
                 default = function(adapter)
                   -- Set `think` to true if the model name contain `qwen3` or `deepseek-r1`
                   local model_name = adapter.model.name:lower()
