@@ -3,6 +3,17 @@ return {
     "olimorris/codecompanion.nvim",
     lazy = false,
     opts = {
+      strategies = {
+        chat = {
+          tools = {
+            opts = {
+              default_tools = {
+                "full_stack_dev"
+              }
+            },
+          }
+        }
+      },
       adapters = {
         opts = {
           show_defaults = false,
