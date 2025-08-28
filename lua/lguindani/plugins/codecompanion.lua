@@ -16,48 +16,50 @@ return {
         }
       },
       adapters = {
-        opts = {
-          show_defaults = false,
-          show_model_choices = true,
+        http = {
+          opts = {
+            show_defaults = false,
+            show_model_choices = true,
+          },
+          copilot = function()
+            return require("codecompanion.adapters").extend("copilot", {
+              schema = {
+                model = {
+                  default = "gpt-4.1",
+                },
+              },
+            })
+          end,
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "ollama",
+              opts = {
+                vision = true,
+                stream = true,
+              },
+              schema = {
+                model = {
+                  default = "qwen3:14b",
+                },
+                num_ctx = {
+                  default = 16384,
+                },
+                think = {
+                  default = function(adapter)
+                    -- Set `think` to true if the model name contain `qwen3` or `deepseek-r1`
+                    local model_name = adapter.model.name:lower()
+                    return vim.iter({ "qwen3", "deepseek-r1" }):any(function(kw)
+                      return string.find(model_name, kw) ~= nil
+                    end)
+                  end,
+                },
+                keep_alive = {
+                  default = '5m',
+                }
+              },
+            })
+          end,
         },
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
-              },
-            },
-          })
-        end,
-        ollama = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            name = "ollama",
-            opts = {
-              vision = true,
-              stream = true,
-            },
-            schema = {
-              model = {
-                default = "qwen3:14b",
-              },
-              num_ctx = {
-                default = 16384,
-              },
-              think = {
-                default = function(adapter)
-                  -- Set `think` to true if the model name contain `qwen3` or `deepseek-r1`
-                  local model_name = adapter.model.name:lower()
-                  return vim.iter({ "qwen3", "deepseek-r1" }):any(function(kw)
-                    return string.find(model_name, kw) ~= nil
-                  end)
-                end,
-              },
-              keep_alive = {
-                default = '5m',
-              }
-            },
-          })
-        end,
       },
       extensions = {
         mcphub = {
