@@ -7,7 +7,6 @@ return {
         chat = {
           tools = {
             opts = {
-              requires_approval = false,
               default_tools = {
                 "full_stack_dev"
               }
