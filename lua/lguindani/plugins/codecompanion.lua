@@ -15,6 +15,12 @@ return {
         }
       },
       adapters = {
+        acp = {
+          opts = {
+            show_defaults = false,
+          },
+          -- Define your custom adapters here
+        },
         http = {
           opts = {
             show_defaults = false,
