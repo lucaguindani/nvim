@@ -2,6 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
+    "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
@@ -78,19 +79,14 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup()
-    -- Manually configure each LSP server
-    local servers = mason_lspconfig.get_installed_servers()
-    for _, server_name in ipairs(servers) do
-      local opts = {
-        capabilities = capabilities,
-      }
-
-      -- Add settings for a specific lsp
-      -- if server_name == "xxx" then
-      -- end
-
-      lspconfig[server_name].setup(opts)
-    end
+    mason_lspconfig.setup({
+      handlers = {
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+      },
+    })
   end,
 }
