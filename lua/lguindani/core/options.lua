@@ -44,3 +44,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- line wrapping
+opt.wrap = true      -- enable line wrapping
+opt.linebreak = true -- wrap at word boundaries
