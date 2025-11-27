@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    tag = "v17.33.0",
     lazy = false,
     opts = {
       strategies = {
